@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطة اليومية للتدريس - أصول الدين ت٤ / ت٥</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap');
+
+  :root {
+    --primary: #1a5c38;
+    --primary-light: #2d8a56;
+    --primary-dark: #0f3d25;
+    --accent: #c9a84c;
+    --accent-light: #e8c97a;
+    --bg: #f5f0e8;
+    --bg-card: #fffef9;
+    --text: #1a1a1a;
+    --text-light: #555;
+    --border: #d4c9a8;
+    --shadow: 0 2px 12px rgba(26,92,56,0.12);
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lateef', 'Cairo', sans-serif;
+    font-size: 20px;
+    background-color: #e8f0eb;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%231a5c38' stroke-width='0.4' opacity='0.18'%3E%3Cpolygon points='40,2 78,22 78,58 40,78 2,58 2,22'/%3E%3Cpolygon points='40,12 68,27 68,53 40,68 12,53 12,27'/%3E%3Cpolygon points='40,22 58,32 58,48 40,58 22,48 22,32'/%3E%3Cline x1='40' y1='2' x2='40' y2='22'/%3E%3Cline x1='78' y1='22' x2='68' y2='27'/%3E%3Cline x1='78' y1='58' x2='68' y2='53'/%3E%3Cline x1='40' y1='78' x2='40' y2='58'/%3E%3Cline x1='2' y1='58' x2='12' y2='53'/%3E%3Cline x1='2' y1='22' x2='12' y2='27'/%3E%3C/g%3E%3C/svg%3E");
+    color: var(--text);
+    min-height: 100vh;
+    direction: rtl;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  }
+  .header-title { font-family: 'Lateef', serif; font-size: 1.89rem; color: #fff; font-weight: 700; }
+  .header-sub { font-size: 1.24rem; color: var(--accent-light); margin-top: 2px; }
+  .header-logo {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.03rem;
+  }
+
+  /* TABS */
+  .tab-bar {
+    display: flex;
+    background: var(--primary-dark);
+    padding: 0 24px;
+    gap: 4px;
+  }
+  .tab-btn {
+    padding: 10px 28px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Lateef', 'Cairo', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .tab-btn:hover { color: #fff; }
+  .tab-btn.active {
+    color: var(--accent-light);
+    border-bottom: 3px solid var(--accent);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* MAIN */
+  .container { max-width: 900px; margin: 0 auto; padding: 20px 16px 40px; }
+
+  /* SECTION CARD */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .card-header {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 1.42rem;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-header .icon { font-size: 1.35rem; }
+  .card-body { padding: 16px; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media(max-width: 600px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* FORM FIELDS */
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 1.24rem; font-weight: 600; color: var(--primary-dark); }
+  .field input, .field select, .field textarea {
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-family: 'Lateef', 'Cairo', sans-serif;
+    font-size: 1.35rem;
+    color: var(--text);
+    background: #fff;
+    direction: rtl;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(26,92,56,0.1);
+  }
+  .field textarea { resize: vertical; min-height: 70px; }
+  .field select { cursor: pointer; }
+
+  /* ACTIVITIES */
+  .activity-list { display: flex; flex-direction: column; gap: 8px; }
+  .activity-item {
+    background: #f9f6ef;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .activity-item:focus-within { border-color: var(--primary); }
+  .activity-num {
+    background: var(--primary); color: #fff;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.24rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .activity-masa {
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Lateef', 'Cairo', sans-serif; font-size: 1.24rem;
+    background: #fff; width: 110px; flex-shrink: 0; direction: rtl;
+  }
+  .activity-text {
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Lateef', 'Cairo', sans-serif; font-size: 1.35rem;
+    background: #fff; flex: 1; direction: rtl; resize: none; min-height: 52px;
+  }
+  .activity-masa:focus, .activity-text:focus { outline: none; border-color: var(--primary); }
+
+  /* BUTTONS */
+  .btn {
+    padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;
+    font-family: 'Lateef', 'Cairo', sans-serif; font-weight: 600; font-size: 1.35rem;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: #b8943d; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); }
+  .btn-outline:hover { background: var(--primary); color: #fff; }
+  .btn-danger { background: #c0392b; color: #fff; }
+  .btn-danger:hover { background: #a93226; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+  /* BBM CHECKBOXES */
+  .bbm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  @media(max-width: 500px) { .bbm-grid { grid-template-columns: repeat(2,1fr); } }
+  .bbm-item {
+    display: flex; align-items: center; gap: 8px;
+    background: #f9f6ef; border: 1.5px solid var(--border);
+    border-radius: 7px; padding: 8px 12px; cursor: pointer;
+    transition: all 0.2s; font-size: 1.35rem;
+  }
+  .bbm-item:hover { border-color: var(--primary); }
+  .bbm-item input[type=checkbox] { accent-color: var(--primary); width: 16px; height: 16px; }
+  .bbm-item.checked { border-color: var(--primary); background: #eaf3ee; }
+
+  /* HADIR */
+  .hadir-box { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hadir-num { display: flex; align-items: center; gap: 6px; font-size: 1.35rem; }
+  .hadir-num input {
+    width: 60px; border: 1.5px solid var(--border); border-radius: 7px;
+    padding: 7px 10px;
+    font-family: 'Lateef', 'Cairo', sans-serif; font-size: 1.35rem;
+    text-align: center; font-weight: 700; color: var(--primary-dark);
+  }
+
+  /* SEBAB */
+  .sebab-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .sebab-tag {
+    padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border);
+    background: #fff; cursor: pointer; font-size: 1.28rem; transition: all 0.2s;
+    font-family: 'Lateef', 'Cairo', sans-serif;
+  }
+  .sebab-tag:hover, .sebab-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  /* PRINT */
+  .print-area { display: none; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff !important; font-size: 11pt; margin: 0; padding: 0; }
+    .no-print, .tab-bar { display: none !important; }
+    .container { max-width: 100%; padding: 0 12px; }
+    .card {
+      box-shadow: none !important;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .card-header {
+      padding: 7px 14px;
+      font-size: 1.1rem;
+    }
+    .card-body { padding: 10px 14px; }
+    .field input, .field select, .field textarea {
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      padding: 5px 8px;
+    }
+    .field textarea { min-height: auto; }
+    .activity-item {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9 !important;
+    }
+    .activity-masa { width: 80px; font-size: 1rem; }
+    .activity-text { font-size: 1rem; min-height: 36px; }
+    .activity-num { width: 22px; height: 22px; font-size: 1rem; }
+    .bbm-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    .bbm-item { padding: 5px 8px; font-size: 0.95rem; border: 1px solid #ccc; }
+    .bbm-item.checked { background: #eaf3ee !important; border-color: #1a5c38 !important; }
+    .hadir-num input { font-size: 1rem; padding: 4px 6px; }
+    .sebab-tag.active { background: #1a5c38 !important; color: #fff !important; }
+    #pencapaiResult { font-size: 1rem; }
+    .grid-2, .grid-3 { gap: 8px; }
+    select[multiple] { height: auto; min-height: 60px; }
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--primary-dark); color: #fff;
+    padding: 12px 24px; border-radius: 30px; font-size: 1.35rem;
+    transition: transform 0.3s; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .thinking-badge {
+    background: var(--accent); color: #fff; padding: 2px 10px;
+    border-radius: 12px; font-size: 1.15rem; font-weight: 600;
+  }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+  /* PRINT CREDIT / SIGNATURE */
+  .print-credit { display: none; }
+  @media print {
+    .print-credit {
+      display: block !important;
+      position: fixed;
+      bottom: 10px;
+      left: 14px;
+      font-size: 9pt;
+      color: #888;
+      font-family: 'Cairo', sans-serif;
+      letter-spacing: 0.5px;
+      direction: ltr;
+    }
+    .print-credit span {
+      font-style: italic;
+      color: #aaa;
+    }
+  }
+
+  /* PENCAPAI */
+  #pencapaiResult {
+    font-size: 1.35rem; font-weight: 700; color: var(--primary);
+    min-width: 50px; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="header no-print">
+  <div>
+    <div class="header-title">الخطة اليومية للتدريس | eRPH</div>
+    <div class="header-sub">أصول الدين — ت٤ / ت٥</div>
+  </div>
+  <div class="header-logo">📖</div>
+</div>
+
+<div class="tab-bar no-print">
+  <button class="tab-btn active" onclick="switchTab(4)">📚 الصف الرابع — T4</button>
+  <button class="tab-btn" onclick="switchTab(5)">📚 الصف الخامس — T5</button>
+</div>
+
+<div class="container">
+
+  <!-- MAKLUMAT ASAS -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📋</span> المعلومات الأساسية</div>
+    <div class="card-body">
+      <div class="grid-2" style="margin-bottom:12px">
+        <div class="field">
+          <label>التاريخ</label>
+          <input type="date" id="tarikh">
+        </div>
+        <div class="field">
+          <label>الأسبوع</label>
+          <input type="number" id="minggu" min="1" max="52" placeholder="أسبوع">
+        </div>
+
+      </div>
+      <div class="grid-2" style="margin-bottom:12px">
+        <div class="field">
+          <label>وقت البداية</label>
+          <input type="time" id="masaMula">
+        </div>
+        <div class="field">
+          <label>وقت النهاية</label>
+          <input type="time" id="masaTamat">
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>اسم المعلم</label>
+          <input type="text" id="namaCikgu" placeholder="اكتب اسم المعلم">
+        </div>
+        <div class="field">
+          <label>الفصل</label>
+          <input type="text" id="kelas" placeholder="مثال: ٤ أ، ٤ ب ...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DSKP -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📖</span> معيار التعلم — DSKP</div>
+    <div class="card-body">
+      <div class="grid-2" style="margin-bottom:12px">
+        <div class="field">
+          <label>المهارة / الميدان</label>
+          <select id="mahara" onchange="onMaharaChange()">
+            <option value="">-- اختر المهارة --</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>الموضوع</label>
+          <select id="maudhu" onchange="onMaudhuChange()">
+            <option value="">-- اختر الموضوع --</option>
+          </select>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <label>معيار المحتوى (SK)</label>
+        <select id="mc" onchange="onMCChange()">
+          <option value="">-- اختر معيار المحتوى --</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>معيار التعلم (SP)</label>
+        <select id="mt" multiple size="3" style="min-height:80px">
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEHADIRAN -->
+  <div class="card">
+    <div class="card-header"><span class="icon">👥</span> الحضور والغياب</div>
+    <div class="card-body">
+      <div class="hadir-box">
+        <div class="hadir-num">
+          <label>المجموع</label>
+          <input type="number" id="jumlahPelajar" min="0" placeholder="0">
+        </div>
+        <div class="hadir-num">
+          <label>الحاضرون</label>
+          <input type="number" id="pelajarHadir" min="0" placeholder="0">
+        </div>
+        <div class="hadir-num">
+          <label>الغائبون</label>
+          <input type="number" id="pelajarGhaiab" min="0" placeholder="0" readonly style="background:#f0f0f0">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AKTIVITI -->
+  <div class="card">
+    <div class="card-header" style="justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span><span class="icon">🎯</span> الأنشطة التعليمية</span>
+      <div class="no-print" style="display:flex;gap:8px">
+        <button class="btn btn-accent" onclick="loadActivities()" style="padding:6px 14px;font-size:1.15rem">⚡ تحميل الأنشطة</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="activityList" class="activity-list"></div>
+      <div class="btn-row no-print">
+        <button class="btn btn-primary" onclick="addActivity()">➕ إضافة نشاط</button>
+        <button class="btn btn-outline" onclick="clearActivities()">🗑 مسح</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BBM -->
+  <div class="card">
+    <div class="card-header"><span class="icon">🖊</span> الوسائل التعليمية (BBM)</div>
+    <div class="card-body">
+      <div id="bbmGrid" class="bbm-grid"></div>
+    </div>
+  </div>
+
+  <!-- TAQYIM -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📊</span> التقييم والتفكير</div>
+    <div class="card-body">
+      <div class="grid-2" style="margin-bottom:12px">
+        <div class="field">
+          <label>i-THINK</label>
+          <select id="ithink">
+            <option value="">-- اختر --</option>
+            <option>م ١ - المعرفة</option>
+            <option>م ٢ - الفهم</option>
+            <option>م ٣ - التطبيق</option>
+            <option>م ٤ - التحليل</option>
+            <option>م ٥ - التقييم</option>
+            <option>م ٦ - الإنشاء</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>خريطة التفكير</label>
+          <select id="peta">
+            <option value="">-- اختر --</option>
+            <option>خريطة الدائرة</option>
+            <option>خريطة الفقاعة</option>
+            <option>خريطة الفقاعة المزدوجة</option>
+            <option>خريطة الشجرة</option>
+            <option>خريطة الجسر</option>
+            <option>خريطة متعددة التدفق</option>
+            <option>خريطة التدفق</option>
+            <option>خريطة الأجزاء والكل</option>
+          </select>
+        </div>
+      </div>
+      <div id="taqyimGrid" class="bbm-grid"></div>
+    </div>
+  </div>
+
+  <!-- PENCAPAIAN -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📈</span> تحقيق أهداف التعلم</div>
+    <div class="card-body">
+      <div class="grid-2">
+        <div class="field">
+          <label>عدد المتحققين</label>
+          <div style="display:flex;align-items:center;gap:10px">
+            <input type="number" id="pencapai" min="0" placeholder="0" oninput="calcPencapai()" style="flex:1">
+            <span style="font-size:1.2rem;color:var(--text-light)">من</span>
+            <input type="number" id="pencapaiJumlah" min="0" placeholder="0" oninput="calcPencapai()" style="flex:1">
+            <div id="pencapaiResult">—</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>ملاحظات</label>
+          <textarea id="refleksi" rows="2" placeholder="تأمل وملاحظات المعلم..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEBAB TANGGUH -->
+  <div class="card">
+    <div class="card-header"><span class="icon">⚠️</span> أسباب التأجيل (إن وجد)</div>
+    <div class="card-body">
+      <div class="sebab-options">
+        <div class="sebab-tag" onclick="toggleSebab(this)">مناسبة مدرسية</div>
+        <div class="sebab-tag" onclick="toggleSebab(this)">تقييم / اختبار</div>
+        <div class="sebab-tag" onclick="toggleSebab(this)">أنشطة خارجية</div>
+        <div class="sebab-tag" onclick="toggleSebab(this)">غياب المعلم</div>
+        <div class="sebab-tag" onclick="toggleSebab(this)">خلل تقني</div>
+      </div>
+      <div class="field">
+        <label>سبب آخر</label>
+        <input type="text" id="sebabLain" placeholder="اكتب السبب...">
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="btn-row no-print" style="justify-content:center;margin-top:20px">
+    <button class="btn btn-accent" onclick="loadData()">📂 Load</button>
+    <button class="btn btn-primary" onclick="window.print()">💾 Save / Print PDF</button>
+    <button class="btn btn-danger" onclick="resetForm()">🗑 Reset</button>
+  </div>
+
+</div><!-- /container -->
+
+<div id="toast" class="toast"></div>
+<div class="print-credit"><span>eRPH by </span><strong>azfarzaibidi</strong><span> © 2025</span></div>
+
+<script>
+// ===== TAB STATE =====
+let currentTab = 4;
+
+// ===== DB T4 =====
+const DB_T4 = {
+  "التوحيد": {
+    topics: ["1. المبادىء العشرة لعلم التوحيد","2. التكليف والمكلف وأهل الفترة","3. مايجب على المكلف وأقسام الحكم العقلي","4. التقليد وحكم إيمان المقلد","5. الإيمان والإسلام","6. الصفات الإلهية","7. الصفات المستحيلة والجائزة في حقه تعالى"],
+    mc: {
+      "1. المبادىء العشرة لعلم التوحيد": ["1.1 استخلاص مفاهيم المبادىء العشرة لعلم التوحيد استخلاصا صحيحا"],
+      "2. التكليف والمكلف وأهل الفترة": ["1.2 استخلاص مفاهيم التكليف والمكلف وأهل الفترة استخلاصا صحيحا"],
+      "3. مايجب على المكلف وأقسام الحكم العقلي": ["1.3 استخلاص مفاهم مايجب على المكلف وأقسام الحكم العقلي استخلاصا صحيحا"],
+      "4. التقليد وحكم إيمان المقلد": ["1.4 استخلاص مفاهيم التقليد وحكم إيمان المقلد استخلاصا صحيحا"],
+      "5. الإيمان والإسلام": ["1.5 استخلاص مفاهيم الإيمان والإسلام استخلاصا صحيحا والتمسك بهما"],
+      "6. الصفات الإلهية": ["1.6 استخلاص مفاهيم الصفات الإلهية استخلاصا صحيحا والإيمان بها"],
+      "7. الصفات المستحيلة والجائزة في حقه تعالى": ["1.7 استخلاص مفاهيم الصفات المستحيلة والجائزة في حقه تعالى استخلاصا صحيحا والإيمان بها."]
+    },
+    mt: {
+      "1.1 استخلاص مفاهيم المبادىء العشرة لعلم التوحيد استخلاصا صحيحا": ["1.1.1 المبادىء العشرة لعلم التوحيد : ( i ) ذكر المبادئ العشرة لعلم التوحيد","1.1.1 المبادىء العشرة لعلم التوحيد : ( ii ) بيان المبادئ العشرة لعلم التوحيد واستخلاصها"],
+      "1.2 استخلاص مفاهيم التكليف والمكلف وأهل الفترة استخلاصا صحيحا": ["1.2.1 التكليف والمكلف : ( i ) ذكر التعريف التكليف والمكلف","1.2.1 التكليف والمكلف : ( ii ) ذكر الأحكام التكليفية","1.2.1 التكليف والمكلف : ( iii ) بيان شروط التكليف","1.2.2 أهل الفترة : ( i ) ذكر تعريف أهل الفترة","1.2.2 أهل الفترة : ( ii ) بيان حكم أهل الفترة عند مذهب أهل السنة ودليله"],
+      "1.3 استخلاص مفاهم مايجب على المكلف وأقسام الحكم العقلي استخلاصا صحيحا": ["1.3.1 معرفة الله : ( i ) ذكر التعريف المعرفة لغة واصطلاحا","1.3.1 معرفة الله : ( ii ) ذكر الدليل على وجوب معرفة الله","1.3.2 الحكم : ( i ) ذكر تعريف الحكم","1.3.2 الحكم : ( ii ) بيان أقسام الحكم","1.3.2 الحكم : ( iii ) تحليل أقسام الحكم العقلي"],
+      "1.4 استخلاص مفاهيم التقليد وحكم إيمان المقلد استخلاصا صحيحا": ["1.4.1 التقليد : ( i ) ذكر تعريف التقليد","1.4.1 التقليد : ( ii ) بيان حكم إيمان العوام","1.4.1 التقليد : ( iii ) استخلاص القول الصحيح في حكم إيمان المقلد ودليله"],
+      "1.5 استخلاص مفاهيم الإيمان والإسلام استخلاصا صحيحا والتمسك بهما": ["1.5.1 الإيمان : ( i ) ذكر تعريف الإيمان لغة وشرعا","1.5.1 الإيمان : ( ii ) ذكر أدلة اهل السنة على ثبوت الإيمان","1.5.2 الإسلام : ( i ) ذكر تعريف الإسلام لغة وشرعا","1.5.2 الإسلام : ( ii ) ذكر أركان الإسلام"],
+      "1.6 استخلاص مفاهيم الصفات الإلهية استخلاصا صحيحا والإيمان بها": ["1.6.1 الصفات الإلهية : ( i ) بيان تعريف الصفات الإلهية الآتية ودليلها نقليا","1.6.1 الصفات الإلهية : ( ii ) استخلاص مضمون الصفات الإلهية وربطها بالحياة","1.6.1 الصفات الإلهية : ( iii ) الإيمان بالصفات الإلهية إيمانا صحيحا"],
+      "1.7 استخلاص مفاهيم الصفات المستحيلة والجائزة في حقه تعالى استخلاصا صحيحا والإيمان بها.": ["1.7.1 الصفات المستحيلة : ( i ) ذكر الصفات المستحيلة في حقه تعالى","1.7.1 الصفات المستحيلة : ( ii ) استخلاص مضمون الصفات المستحيلة وربطها بالحياة","1.7.2 الصفة الجائزة : ( iv ) ذكر الصفات الجائزة في حقه تعالى"]
+    }
+  },
+  "التفسير (الفهم)": {
+    topics: ["1. سورة التكوير","2. سورة الأعلى","3. سورة الضحى","4. سورة التين","5. سورة الزلزلة","6. سورة القارعة","7. سورة التكاثر","8. سورة العصر","9. سورة الفيل","10. سورة النصر","11. سورة الإخلاص","12. سورة الفلق","13. سورة الناس"],
+    mc: {
+      "1. سورة التكوير": ["2.1 استخلاص مضمون سورة التكوير استخلاصا صحيحا وتدبره"],
+      "2. سورة الأعلى": ["2.2 استخلاص مضمون سورة الأعلى استخلاصا صحيحا وتدبره"],
+      "3. سورة الضحى": ["2.3 استخلاص مضمون سورة الضحى استخلاصا صحيحا وتدبره"],
+      "4. سورة التين": ["2.4 استخلاص مضمون سورة التين استخلاصا صحيحا وتدبره"],
+      "5. سورة الزلزلة": ["2.5 استخلاص مضمون سورة الزلزلة استخلاصا صحيحا وتدبره"],
+      "6. سورة القارعة": ["2.6 استخلاص مضمون سورة القارعة استخلاصا صحيحا وتدبره"],
+      "7. سورة التكاثر": ["2.7 استخلاص مضمون سورة التكاثر استخلاصا صحيحا وتدبره"],
+      "8. سورة العصر": ["2.8 استخلاص مضمون سورة العصر استخلاصا صحيحا وتدبره"],
+      "9. سورة الفيل": ["2.9 استخلاص مضمون سورة الفيل استخلاصا صحيحا وتدبره"],
+      "10. سورة النصر": ["2.10 استخلاص مضمون سورة النصر استخلاصا صحيحا وتدبره"],
+      "11. سورة الإخلاص": ["2.11 استخلاص مضمون سورة الإخلاص استخلاصا صحيحا وتدبره"],
+      "12. سورة الفلق": ["2.12 استخلاص مضمون سورة الفلق استخلاصا صحيحا وتدبره"],
+      "13. سورة الناس": ["2.13 استخلاص مضمون سورة الناس استخلاصا صحيحا وتدبره"]
+    },
+    mt: {
+      "2.1 استخلاص مضمون سورة التكوير استخلاصا صحيحا وتدبره": ["2.1.1 ذكر معاني الكلمات المختارة","2.1.2 شرح مفهوم من قوله تعالى","2.1.3 توضيح الأسرار البلاغية المختارة","2.1.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.2 استخلاص مضمون سورة الأعلى استخلاصا صحيحا وتدبره": ["2.2.1 ذكر معاني الكلمات المختارة","2.2.2 شرح مفهوم من قوله تعالى","2.2.3 توضيح الأسرار البلاغية المختارة","2.2.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.3 استخلاص مضمون سورة الضحى استخلاصا صحيحا وتدبره": ["2.3.1 ذكر معاني الكلمات المختارة","2.3.2 شرح مفهوم من قوله تعالى","2.3.3 توضيح الأسرار البلاغية المختارة","2.3.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.4 استخلاص مضمون سورة التين استخلاصا صحيحا وتدبره": ["2.4.1 ذكر معاني الكلمات المختارة","2.4.2 شرح مفهوم من قوله تعالى","2.4.3 توضيح الأسرار البلاغية المختارة","2.4.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.5 استخلاص مضمون سورة الزلزلة استخلاصا صحيحا وتدبره": ["2.5.1 ذكر معاني الكلمات المختارة","2.5.2 شرح مفهوم من قوله تعالى","2.5.3 توضيح الأسرار البلاغية المختارة","2.5.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.6 استخلاص مضمون سورة القارعة استخلاصا صحيحا وتدبره": ["2.6.1 ذكر معاني الكلمات المختارة","2.6.2 شرح مفهوم من قوله تعالى","2.6.3 توضيح الأسرار البلاغية المختارة","2.6.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.7 استخلاص مضمون سورة التكاثر استخلاصا صحيحا وتدبره": ["2.7.1 ذكر معاني الكلمات المختارة","2.7.2 شرح مفهوم من قوله تعالى","2.7.3 توضيح الأسرار البلاغية المختارة","2.7.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.8 استخلاص مضمون سورة العصر استخلاصا صحيحا وتدبره": ["2.8.1 ذكر معاني الكلمات المختارة","2.8.2 شرح مفهوم من قوله تعالى","2.8.3 توضيح الأسرار البلاغية المختارة","2.8.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.9 استخلاص مضمون سورة الفيل استخلاصا صحيحا وتدبره": ["2.9.1 ذكر معاني الكلمات المختارة","2.9.2 شرح مفهوم من قوله تعالى","2.9.3 توضيح الأسرار البلاغية المختارة","2.9.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.10 استخلاص مضمون سورة النصر استخلاصا صحيحا وتدبره": ["2.10.1 ذكر معاني الكلمات المختارة","2.10.2 شرح مفهوم من قوله تعالى","2.10.3 توضيح الأسرار البلاغية المختارة","2.10.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.11 استخلاص مضمون سورة الإخلاص استخلاصا صحيحا وتدبره": ["2.11.1 ذكر معاني الكلمات المختارة","2.11.2 شرح مفهوم من قوله تعالى","2.11.3 توضيح الأسرار البلاغية المختارة","2.11.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.12 استخلاص مضمون سورة الفلق استخلاصا صحيحا وتدبره": ["2.12.1 ذكر معاني الكلمات المختارة","2.12.2 شرح مفهوم من قوله تعالى","2.12.3 توضيح الأسرار البلاغية المختارة","2.12.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.13 استخلاص مضمون سورة الناس استخلاصا صحيحا وتدبره": ["2.13.1 ذكر معاني الكلمات المختارة","2.13.2 شرح مفهوم من قوله تعالى","2.13.3 توضيح الأسرار البلاغية المختارة","2.13.4 استخلاص ما يستفاد من السورة الكريمة"]
+    }
+  },
+  "التفسير (التلاوة)": {
+    topics: ["تلاوة السورة المختارة"],
+    mc: { "تلاوة السورة المختارة": ["2.14 تلاوة الآيات من السور المختارة تلاوة صحيحة مجودة طليقة فصيحة"] },
+    mt: { "2.14 تلاوة الآيات من السور المختارة تلاوة صحيحة مجودة طليقة فصيحة": ["2.14.1 تلاوة الآيات القرآنية مع مراعاة أحكام التجويد","2.14.2 الملازمة على تلاوة القرءان مع مراعاة أحكام التجويد"] }
+  },
+  "حفظ القرأن": {
+    topics: ["سورة لقمان"],
+    mc: { "سورة لقمان": ["3.1 حفظ سورة لقمان مع مراعاة أحكام التجويد"] },
+    mt: { "3.1 حفظ سورة لقمان مع مراعاة أحكام التجويد": ["3.1.1 حفظ سورة لقمان مع مراعاة أحكام التجويد","3.1.2 الملازمة على حفظ القرأن مع مراعاة أحكام التجويد"] }
+  }
+};
+
+// ===== DB T5 =====
+const DB_T5 = {
+  "التوحيد": {
+    topics: ["1. خلق أفعال العباد","2. التوفيق والخذلان","3. الوعد والوعيد","4. السعادة والشقاوة","5. القضاء والقدر","6. النبوات","7. المعجزة","8. معجزات نبينا ﷺ","9. اعتقادنا في الصحابة"],
+    mc: {
+      "1. خلق أفعال العباد": ["1.1 استخلاص مفاهيم خلق أفعال العباد استخلاصا صحيحا"],
+      "2. التوفيق والخذلان": ["1.2 استخلاص مفاهيم التوفيق والخذلان استخلاصا صحيحا"],
+      "3. الوعد والوعيد": ["1.3 استخلاص مفاهيم الوعد والوعيد استخلاصا صحيحا"],
+      "4. السعادة والشقاوة": ["1.4 استخلاص مفاهيم السعادة والشقاوة استخلاصا صحيحا"],
+      "5. القضاء والقدر": ["1.5 استخلاص مفاهيم القضاء والقدر استخلاصا صحيحا"],
+      "6. النبوات": ["1.6 استخلاص مفاهيم النبوات استخلاصا صحيحا"],
+      "7. المعجزة": ["1.7 استخلاص مفاهيم المعجزة استخلاصا صحيحا"],
+      "8. معجزات نبينا ﷺ": ["1.8 استخلاص مفاهيم معجزات نبينا ﷺ استخلاصا صحيحا"],
+      "9. اعتقادنا في الصحابة": ["1.9 استخلاص مفاهيم اعتقادنا في الصحابة استخلاصا صحيحا"]
+    },
+    mt: {
+      "1.1 استخلاص مفاهيم خلق أفعال العباد استخلاصا صحيحا": ["1.1.1 ذكر أفعال العباد اضطرارها واختيارها","1.1.2 بيان الكسب ومراحله عند أهل السنة والجماعة والمعتزلة","1.1.3 بيان الدليل النقلي على إثبات الكسب","1.1.4 توضيح أقوال المذاهب في علاقة الأسباب بالمسببات"],
+      "1.2 استخلاص مفاهيم التوفيق والخذلان استخلاصا صحيحا": ["1.2.1 ذكر مفهوم التوفيق والخذلان","1.2.2 بيان الدليل النقلي على التوفيق والخذلان"],
+      "1.3 استخلاص مفاهيم الوعد والوعيد استخلاصا صحيحا": ["1.3.1 ذكر تعريف الوعد والوعيد","1.3.2 بيان حكم الوعد والوعيد عند الأشاعرة والماتريدية"],
+      "1.4 استخلاص مفاهيم السعادة والشقاوة استخلاصا صحيحا": ["1.4.1 ذكر تعريف السعادة والشقاوة","1.4.2 توضيح السعادة والشقاوة عند الأشاعرة والماتريدية"],
+      "1.5 استخلاص مفاهيم القضاء والقدر استخلاصا صحيحا": ["1.5.1 ذكر تعريف القضاء والقدر","1.5.2 ذكر دليل وجوب الإيمان بالقضاء والقدر","1.5.3 بيان رأي الأشاعرة والماتريدية حول تقسيم القضاء والقدر","1.5.4 توضيح حكم الاحتجاج بالقضاء والقدر"],
+      "1.6 استخلاص مفاهيم النبوات استخلاصا صحيحا": ["1.6.1 ذكر حاجة البشر إلى الرسالة","1.6.2 ذكر تعريف الوحي وأنواعه","1.6.3 بيان الفرق بين النبي والرسول","1.6.4 بيان حكم إرسال الرسل وآراء المذاهب فيه","1.6.5 توضيح حكم الإيمان بالرسل والأنبياء"],
+      "1.7 استخلاص مفاهيم المعجزة استخلاصا صحيحا": ["1.7.1 ذكر أنواع الخوارق للعادة","1.7.2 بيان تعريف وشروط المعجزة","1.7.3 بيان مفاهيم الكرامة والمعونة والاستدراج والإهانة والإرهاص","1.7.4 توضيح الفرق بين الخوارق والسحر والشعوذة","1.7.5 توضيح حكم المعجزة على صدق الرسول"],
+      "1.8 استخلاص مفاهيم معجزات نبينا ﷺ استخلاصا صحيحا": ["1.8.1 ذكر مفهوم المعجزة الخالدة القرآن الكريم","1.8.2 بيان إعجاز القرآن","1.8.3 ذكر بعض معجزات سيدنا محمد ﷺ الحسية","1.8.4 بيان حادثة الإسراء والمعراج وحكم الإيمان بها"],
+      "1.9 استخلاص مفاهيم اعتقادنا في الصحابة استخلاصا صحيحا": ["1.9.1 ذكر رأي أهل السنة في أصحاب النبي ﷺ","1.9.2 بيان مفهوم الصحابة وأفضليتهم","1.9.3 توضيح المراد بالخلافة ومراتب الخلفاء الأربعة"]
+    }
+  },
+  "التفسير (الفهم)": {
+    topics: ["1. سورة الملك","2. سورة القلم","3. سورة المزمل","4. سورة القيامة","5. سورة الإنسان"],
+    mc: {
+      "1. سورة الملك": ["2.1 استخلاص مضمون سورة الملك استخلاصا صحيحا وتدبره"],
+      "2. سورة القلم": ["2.2 استخلاص مضمون سورة القلم استخلاصا صحيحا وتدبره"],
+      "3. سورة المزمل": ["2.3 استخلاص مضمون سورة المزمل استخلاصا صحيحا وتدبره"],
+      "4. سورة القيامة": ["2.4 استخلاص مضمون سورة القيامة استخلاصا صحيحا وتدبره"],
+      "5. سورة الإنسان": ["2.5 استخلاص مضمون سورة الإنسان استخلاصا صحيحا وتدبره"]
+    },
+    mt: {
+      "2.1 استخلاص مضمون سورة الملك استخلاصا صحيحا وتدبره": ["2.1.1 ذكر معاني الكلمات المختارة","2.1.2 شرح مفهوم من قوله تعالى","2.1.3 توضيح الأسرار البلاغية المختارة","2.1.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.2 استخلاص مضمون سورة القلم استخلاصا صحيحا وتدبره": ["2.2.1 ذكر معاني الكلمات المختارة","2.2.2 شرح مفهوم من قوله تعالى","2.2.3 توضيح الأسرار البلاغية المختارة","2.2.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.3 استخلاص مضمون سورة المزمل استخلاصا صحيحا وتدبره": ["2.3.1 ذكر معاني الكلمات المختارة","2.3.2 شرح مفهوم من قوله تعالى","2.3.3 توضيح الأسرار البلاغية المختارة","2.3.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.4 استخلاص مضمون سورة القيامة استخلاصا صحيحا وتدبره": ["2.4.1 ذكر معاني الكلمات المختارة","2.4.2 شرح مفهوم من قوله تعالى","2.4.3 توضيح الأسرار البلاغية المختارة","2.4.4 استخلاص ما يستفاد من السورة الكريمة"],
+      "2.5 استخلاص مضمون سورة الإنسان استخلاصا صحيحا وتدبره": ["2.5.1 ذكر معاني الكلمات المختارة","2.5.2 شرح مفهوم من قوله تعالى","2.5.3 توضيح الأسرار البلاغية المختارة","2.5.4 استخلاص ما يستفاد من السورة الكريمة"]
+    }
+  },
+  "التفسير (التلاوة)": {
+    topics: ["تلاوة السور المختارة"],
+    mc: { "تلاوة السور المختارة": ["2.6 تلاوة الآيات من السور المختارة تلاوة صحيحة مجودة طليقة فصيحة"] },
+    mt: { "2.6 تلاوة الآيات من السور المختارة تلاوة صحيحة مجودة طليقة فصيحة": ["2.6.1 تلاوة الآيات من: سورة المرسلات، الحاقة، المعارج، نوح، الجن، المدثر","2.6.2 الملازمة على تلاوة القرءان مع مراعاة أحكام التجويد"] }
+  },
+  "حفظ القرآن": {
+    topics: ["سورة السجدة"],
+    mc: { "سورة السجدة": ["3.1 حفظ سورة السجدة مع مراعاة أحكام التجويد"] },
+    mt: { "3.1 حفظ سورة السجدة مع مراعاة أحكام التجويد": ["3.1.1 حفظ سورة السجدة مع مراعاة أحكام التجويد","3.1.2 الملازمة على حفظ القرآن مع مراعاة أحكام التجويد"] }
+  }
+};
+
+// ===== ACTIVITIES T4 =====
+const ACTIVITIES_T4 = {
+  "1. المبادىء العشرة لعلم التوحيد": [["5 دقائق","المقدمة: يطرح المعلم سؤالاً تحفيزياً: ما هي المبادئ الأساسية التي يقوم عليها علم التوحيد؟"],["10 دقائق","العرض والشرح: يشرح المعلم المبادئ العشرة لعلم التوحيد بالتفصيل مستعيناً بعرض الشرائح."],["15 دقائق","النشاط الجماعي: تُقسَّم الطلبة إلى مجموعات وتناقش كل مجموعة مبدأين وتقدم ملخصاً."],["15 دقائق","العرض والتقديم: تقدم كل مجموعة ما توصلت إليه ويعلق المعلم ويصحح الأخطاء."],["10 دقائق","التطبيق الكتابي: يكتب الطلبة المبادئ العشرة في كراسة النشاط مع شرح مختصر لكل مبدأ."],["5 دقائق","الخاتمة والتقييم: يلخص المعلم الدرس ويطرح أسئلة شفهية للتحقق من الفهم."]],
+  "2. التكليف والمكلف وأهل الفترة": [["5 دقائق","المقدمة: يطرح المعلم سؤالاً: من هو المكلف وما شروط التكليف؟"],["15 دقائق","الشرح والتوضيح: يشرح المعلم مفهوم التكليف والمكلف وشروطه وأحكامه التكليفية."],["10 دقائق","نشاط أهل الفترة: يناقش المعلم مع الطلبة مفهوم أهل الفترة وحكمهم عند أهل السنة."],["15 دقائق","ورقة العمل: يحل الطلبة أسئلة تشمل تعريف التكليف وأحكامه وحكم أهل الفترة."],["10 دقائق","المناقشة والتصحيح: يناقش المعلم إجابات الطلبة ويصحح الأخطاء."],["5 دقائق","الخاتمة: يلخص المعلم أبرز النقاط ويكلف الطلبة بمراجعة الدرس."]],
+  "3. مايجب على المكلف وأقسام الحكم العقلي": [["5 دقائق","المقدمة: يسأل المعلم: ماذا يجب على كل مكلف معرفته عن ربه؟"],["15 دقائق","الشرح: يشرح المعلم وجوب معرفة الله وأقسام الحكم العقلي الثلاثة."],["15 دقائق","نشاط خريطة التفكير: يرسم الطلبة خريطة فقاعية توضح أقسام الحكم العقلي مع أمثلة."],["10 دقائق","التطبيق: يعطي المعلم أمثلة ويطلب من الطلبة تصنيفها ضمن أقسام الحكم العقلي."],["10 دقائق","العرض والمناقشة: يعرض الطلبة خرائطهم ويناقشها المعلم."],["5 دقائق","الخاتمة: يراجع المعلم الأقسام الثلاثة ويختم بأسئلة تقييمية."]],
+  "4. التقليد وحكم إيمان المقلد": [["5 دقائق","المقدمة: يطرح المعلم سؤالاً: هل يصح إيمان من قلّد غيره دون دليل؟"],["15 دقائق","الشرح: يوضح المعلم تعريف التقليد وحكم إيمان العوام والقول الصحيح فيه."],["15 دقائق","نشاط المناظرة: تنقسم الطلبة إلى فريقين يناقشان صحة إيمان المقلد."],["10 دقائق","استخلاص الرأي الصحيح: يوجه المعلم الطلبة للوصول إلى القول الراجح بأدلته."],["10 دقائق","التطبيق الكتابي: يكتب الطلبة ملخصاً عن حكم إيمان المقلد."],["5 دقائق","الخاتمة: يوضح المعلم أهمية الفهم الصحيح لهذه المسألة العقدية."]],
+  "5. الإيمان والإسلام": [["5 دقائق","المقدمة: يسأل المعلم: ما الفرق بين الإيمان والإسلام؟"],["15 دقائق","الشرح: يشرح المعلم تعريف الإيمان والإسلام وأركانهما وأدلة أهل السنة."],["15 دقائق","نشاط المقارنة: يعمل الطلبة في مجموعات لرسم جدول مقارنة بين الإيمان والإسلام."],["10 دقائق","التطبيق: يناقش المعلم العلاقة بين الإيمان والعمل وزيادة الإيمان ونقصانه."],["10 دقائق","ورقة العمل: يحل الطلبة أسئلة تطبيقية في كراسة النشاط."],["5 دقائق","الخاتمة: يحث المعلم الطلبة على التمسك بالإيمان والإسلام."]],
+  "6. الصفات الإلهية": [["5 دقائق","المقدمة: يسأل المعلم: كم عدد صفات الله الواجبة وما دليلها؟"],["15 دقائق","الشرح: يشرح المعلم الصفات الإلهية الثلاث عشرة تعريفاً وأدلةً نقلية."],["15 دقائق","نشاط البطاقات: توزع بطاقات تحمل أسماء الصفات ويشرح كل طالب صفته."],["10 دقائق","ربط الصفات بالحياة: يناقش المعلم أثر معرفة الصفات الإلهية في السلوك اليومي."],["10 دقائق","التقييم الكتابي: يكتب الطلبة الصفات مع تعريف مختصر وأدلتها."],["5 دقائق","الخاتمة: يحث المعلم على الإيمان الصحيح بالصفات الإلهية والتأمل فيها."]],
+  "7. الصفات المستحيلة والجائزة في حقه تعالى": [["5 دقائق","المقدمة: يطرح المعلم: ما الصفات التي تستحيل على الله؟ وما الجائز في حقه؟"],["15 دقائق","الشرح: يوضح المعلم الصفات المستحيلة في حق الله وأدلتها والصفة الجائزة."],["15 دقائق","نشاط التصنيف: يعطي المعلم قائمة صفات ويطلب تصنيفها واجبة أم مستحيلة أم جائزة."],["10 دقائق","المناقشة: يناقش المعلم الإجابات ويصحح الأخطاء."],["10 دقائق","ورقة العمل: يحل الطلبة أسئلة تطبيقية في كتاب النشاط."],["5 دقائق","الخاتمة: يلخص الدرس ويحث على الإيمان الصحيح بصفات الله."]],
+  "تلاوة السورة المختارة": [["5 دقائق","المقدمة: يهيئ المعلم الطلبة للتلاوة ويذكرهم بأحكام التجويد الأساسية."],["10 دقائق","النمذجة: يتلو المعلم السورة المختارة تلاوةً صحيحة مجودة والطلبة يتابعون."],["10 دقائق","التدريب الفردي: يتلو كل طالب السورة بالتناوب والمعلم يصحح ويوجه."],["5 دقائق","الخاتمة: يحث المعلم على الملازمة في تلاوة القرآن مع مراعاة التجويد."]],
+  "سورة لقمان": [["5 دقائق","المقدمة: يراجع المعلم مع الطلبة الآيات المحفوظة سابقاً من سورة لقمان."],["10 دقائق","الحفظ الجديد: يتلو المعلم الآيات الجديدة نموذجياً ثم يكررها مع الطلبة جماعةً."],["10 دقائق","التسميع الفردي: يتناوب الطلبة على تسميع الآيات للمعلم مع التصحيح الفوري."],["5 دقائق","الخاتمة: يكلف المعلم الطلبة بمواصلة الحفظ والاهتمام بأحكام التجويد."]]
+};
+// Add T4 tafsir activities
+["1. سورة التكوير","2. سورة الأعلى","3. سورة الضحى","4. سورة التين","5. سورة الزلزلة","6. سورة القارعة","7. سورة التكاثر","8. سورة العصر","9. سورة الفيل","10. سورة النصر","11. سورة الإخلاص","12. سورة الفلق","13. سورة الناس"].forEach(t => {
+  const name = t.split('. ')[1];
+  ACTIVITIES_T4[t] = [
+    ["5 دقائق", `المقدمة: يتلو المعلم ${name} تلاوةً نموذجيةً ثم يطلب من الطلبة التلاوة الجماعية.`],
+    ["10 دقائق", `شرح المفردات: يشرح المعلم معاني الكلمات المختارة من ${name} مع الكتابة على السبورة.`],
+    ["15 دقائق", `شرح المعنى الإجمالي: يوضح المعلم المعنى الإجمالي لـ${name} والمفاهيم الرئيسية فيها.`],
+    ["15 دقائق", `النشاط الجماعي: تعمل المجموعات على استخلاص الدروس والعبر من ${name} وتدوينها.`],
+    ["10 دقائق", `الأسرار البلاغية: يشرح المعلم الأساليب البلاغية المختارة في ${name} وأثرها في المعنى.`],
+    ["5 دقائق", `الخاتمة: يناقش المعلم مع الطلبة ما يُستفاد من ${name} في الحياة اليومية.`]
+  ];
+});
+
+// ===== ACTIVITIES T5 =====
+const ACTIVITIES_T5 = {
+  "1. خلق أفعال العباد": [["5 دقائق","المقدمة: يطرح المعلم سؤالاً: هل أفعال الإنسان من خلق الله أم من خلق الإنسان نفسه؟"],["15 دقائق","الشرح: يوضح المعلم أنواع أفعال العباد الاضطرارية والاختيارية ومفهوم الكسب."],["15 دقائق","المقارنة: يناقش المعلم الفرق بين رأي أهل السنة والمعتزلة في الكسب."],["10 دقائق","ورقة العمل: يحل الطلبة أسئلة حول مراحل الكسب وأدلته النقلية."],["10 دقائق","المناقشة: يناقش المعلم علاقة الأسباب بالمسببات عند المذاهب المختلفة."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على الإيمان الصحيح بأفعال العباد."]],
+  "2. التوفيق والخذلان": [["5 دقائق","المقدمة: يسأل المعلم: ما معنى التوفيق والخذلان في حياة المؤمن؟"],["15 دقائق","الشرح: يوضح المعلم مفهوم التوفيق والخذلان وفق عقيدة أهل السنة."],["15 دقائق","نشاط الأدلة: يبحث الطلبة في الأدلة النقلية على التوفيق والخذلان ويقدمونها."],["15 دقائق","التطبيق: يربط الطلبة بين التوفيق والخذلان وواقع الحياة اليومية."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويوضح أثر هذه العقيدة في السلوك."]],
+  "3. الوعد والوعيد": [["5 دقائق","المقدمة: يسأل المعلم: ما الفرق بين الوعد والوعيد في القرآن الكريم؟"],["15 دقائق","الشرح: يشرح المعلم تعريف الوعد والوعيد وحكمهما عند الأشاعرة والماتريدية."],["15 دقائق","نشاط الأمثلة: يستخرج الطلبة آيات تتضمن الوعد وآيات تتضمن الوعيد."],["15 دقائق","المقارنة: يقارن الطلبة بين رأي الأشاعرة والماتريدية في الوعد والوعيد."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويوضح أهمية الخوف والرجاء في الإسلام."]],
+  "4. السعادة والشقاوة": [["5 دقائق","المقدمة: يطرح المعلم: ما السعيد وما الشقي عند أهل الكلام؟"],["15 دقائق","الشرح: يوضح المعلم تعريف السعادة والشقاوة عند الأشاعرة والماتريدية."],["15 دقائق","نشاط المقارنة: يرسم الطلبة خريطة فقاعية مزدوجة للمقارنة بين المذهبين."],["15 دقائق","التطبيق: يناقش الطلبة معنى السعادة والشقاوة في ضوء الأدلة الشرعية."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على العمل الصالح طلباً للسعادة."]],
+  "5. القضاء والقدر": [["5 دقائق","المقدمة: يطرح المعلم: ما الفرق بين القضاء والقدر؟"],["15 دقائق","الشرح: يوضح المعلم تعريف القضاء والقدر والدليل على وجوب الإيمان بهما."],["10 دقائق","المقارنة: يبين المعلم رأي الأشاعرة والماتريدية في تقسيم القضاء والقدر."],["15 دقائق","ورقة العمل: يحل الطلبة أسئلة حول حكم الاحتجاج بالقضاء والقدر."],["10 دقائق","المناقشة: يناقش المعلم أثر الإيمان بالقدر في حياة المسلم."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويوضح منهج أهل السنة في القضاء والقدر."]],
+  "6. النبوات": [["5 دقائق","المقدمة: يسأل المعلم: لماذا يحتاج البشر إلى الأنبياء والرسل؟"],["15 دقائق","الشرح: يوضح المعلم حاجة البشر للرسالة ومفهوم الوحي وأنواعه."],["10 دقائق","الفروق: يبين المعلم الفرق بين النبي والرسول بأمثلة."],["15 دقائق","ورقة العمل: يحل الطلبة أسئلة حول حكم إرسال الرسل وآراء المذاهب."],["10 دقائق","المناقشة: يناقش المعلم حكم الإيمان بالرسل والأنبياء وأثره في الحياة."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على الإيمان بجميع الأنبياء."]],
+  "7. المعجزة": [["5 دقائق","المقدمة: يسأل المعلم: ما الفرق بين المعجزة والكرامة والسحر؟"],["15 دقائق","الشرح: يوضح المعلم أنواع الخوارق وتعريف المعجزة وشروطها."],["15 دقائق","نشاط التصنيف: يصنف الطلبة أنواع الخوارق: كرامة، معونة، استدراج، إهانة، إرهاص."],["10 دقائق","المقارنة: يقارن الطلبة بين المعجزة والسحر والشعوذة."],["10 دقائق","التطبيق: يناقش الطلبة حكم المعجزة على صدق الرسول."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على التمييز بين الحق والباطل."]],
+  "8. معجزات نبينا ﷺ": [["5 دقائق","المقدمة: يسأل المعلم: ما أعظم معجزة أُعطيها نبينا محمد ﷺ؟"],["15 دقائق","الشرح: يوضح المعلم مفهوم إعجاز القرآن الكريم كمعجزة خالدة."],["15 دقائق","نشاط العرض: يقدم الطلبة معجزات حسية للنبي ﷺ مع شرح مختصر."],["10 دقائق","الإسراء والمعراج: يشرح المعلم حادثة الإسراء والمعراج وحكم الإيمان بها."],["10 دقائق","ورقة العمل: يحل الطلبة أسئلة تطبيقية حول المعجزات النبوية."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على تعظيم النبي ﷺ."]],
+  "9. اعتقادنا في الصحابة": [["5 دقائق","المقدمة: يسأل المعلم: كيف ينظر أهل السنة إلى الصحابة الكرام؟"],["15 دقائق","الشرح: يوضح المعلم رأي أهل السنة في الصحابة ومفهوم الصحبة وأفضلية الصحابة."],["15 دقائق","نشاط الخلافة: يشرح المعلم مفهوم الخلافة ومراتب الخلفاء الأربعة."],["10 دقائق","ورقة العمل: يحل الطلبة أسئلة حول عقيدة أهل السنة في الصحابة."],["10 دقائق","المناقشة: يناقش الطلبة أهمية محبة الصحابة في منهج أهل السنة."],["5 دقائق","الخاتمة: يلخص المعلم الدرس ويحث على اتباع منهج الصحابة الكرام."]],
+  "تلاوة السور المختارة": [["5 دقائق","المقدمة: يهيئ المعلم الطلبة للتلاوة ويذكرهم بأحكام التجويد."],["10 دقائق","النمذجة: يتلو المعلم من سور المرسلات أو الحاقة أو غيرها تلاوةً صحيحة مجودة."],["10 دقائق","التدريب الجماعي: يتلو الطلبة معاً والمعلم يصحح الأخطاء."],["10 دقائق","التدريب الفردي: يتلو كل طالب بالتناوب والمعلم يوجه ويصحح."],["5 دقائق","الخاتمة: يحث المعلم على الملازمة في تلاوة القرآن مع مراعاة التجويد."]],
+  "سورة السجدة": [["5 دقائق","المقدمة: يراجع المعلم مع الطلبة الآيات المحفوظة سابقاً من سورة السجدة."],["10 دقائق","الحفظ الجديد: يتلو المعلم الآيات الجديدة نموذجياً ثم يكررها مع الطلبة جماعةً."],["10 دقائق","التسميع الفردي: يتناوب الطلبة على تسميع الآيات للمعلم مع التصحيح الفوري."],["5 دقائق","الخاتمة: يكلف المعلم الطلبة بمواصلة الحفظ والاهتمام بأحكام التجويد."]]
+};
+// Add T5 tafsir activities
+["1. سورة الملك","2. سورة القلم","3. سورة المزمل","4. سورة القيامة","5. سورة الإنسان"].forEach(t => {
+  const name = t.split('. ')[1];
+  ACTIVITIES_T5[t] = [
+    ["5 دقائق", `المقدمة: يتلو المعلم ${name} تلاوةً نموذجيةً ثم يطلب من الطلبة التلاوة الجماعية.`],
+    ["10 دقائق", `شرح المفردات: يشرح المعلم معاني الكلمات المختارة من ${name} مع الكتابة على السبورة.`],
+    ["15 دقائق", `شرح المعنى الإجمالي: يوضح المعلم المعنى الإجمالي لـ${name} والمفاهيم الرئيسية فيها.`],
+    ["15 دقائق", `النشاط الجماعي: تعمل المجموعات على استخلاص الدروس والعبر من ${name} وتدوينها.`],
+    ["10 دقائق", `الأسرار البلاغية: يشرح المعلم الأساليب البلاغية المختارة في ${name} وأثرها في المعنى.`],
+    ["5 دقائق", `الخاتمة: يناقش المعلم مع الطلبة ما يُستفاد من ${name} في الحياة اليومية.`]
+  ];
+});
+
+// ===== TAQYIM DEFAULTS =====
+const TAQYIM_DEFAULTS_T4 = {
+  'التوحيد':            { ithink: 'م ٤ - التحليل',  peta: 'خريطة الفقاعة المزدوجة', taqyim: ['التدريبات التحريرية','الإشراف و المراقبة'] },
+  'التفسير (الفهم)':   { ithink: 'م ٣ - التطبيق',  peta: 'خريطة الفقاعة',          taqyim: ['العرض و التقديم','التدريبات التحريرية'] },
+  'التفسير (التلاوة)': { ithink: 'م ٢ - الفهم',     peta: 'خريطة الدائرة',          taqyim: ['الإشراف و المراقبة'] },
+  'حفظ القرأن':        { ithink: 'م ١ - المعرفة',   peta: 'خريطة الدائرة',          taqyim: ['الإشراف و المراقبة','الاختبار'] },
+};
+const TAQYIM_DEFAULTS_T5 = {
+  'التوحيد':            { ithink: 'م ٤ - التحليل',  peta: 'خريطة الفقاعة المزدوجة', taqyim: ['التدريبات التحريرية','الإشراف و المراقبة'] },
+  'التفسير (الفهم)':   { ithink: 'م ٣ - التطبيق',  peta: 'خريطة الفقاعة',          taqyim: ['العرض و التقديم','التدريبات التحريرية'] },
+  'التفسير (التلاوة)': { ithink: 'م ٢ - الفهم',     peta: 'خريطة الدائرة',          taqyim: ['الإشراف و المراقبة'] },
+  'حفظ القرآن':        { ithink: 'م ١ - المعرفة',   peta: 'خريطة الدائرة',          taqyim: ['الإشراف و المراقبة','الاختبار'] },
+};
+
+const BBM_LIST = ["كتاب المدرسي","كتاب النشاط","LCD Projektor","كراسة العمل","البطاقات","الورقة","الشريط","الصور","الأشياء المجسمة","والصورات"];
+const TAQYIM_LIST = ["اختبار الذكاء","التقرير العملي","التدريبات التحريرية","العرض و التقديم","الإشراف و المراقبة","الاختبار"];
+
+// ===== HELPERS =====
+function getDB() { return currentTab === 4 ? DB_T4 : DB_T5; }
+function getActivities() { return currentTab === 4 ? ACTIVITIES_T4 : ACTIVITIES_T5; }
+function getTaqyimDefaults() { return currentTab === 4 ? TAQYIM_DEFAULTS_T4 : TAQYIM_DEFAULTS_T5; }
+
+// ===== TAB SWITCH =====
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', (i===0 && tab===4)||(i===1 && tab===5)));
+  // Reset DSKP dropdowns
+  const maharaSel = document.getElementById('mahara');
+  maharaSel.innerHTML = '<option value="">-- اختر المهارة --</option>';
+  const DB = getDB();
+  Object.keys(DB).forEach(k => {
+    maharaSel.innerHTML += `<option value="${k}">${k}</option>`;
+  });
+  document.getElementById('maudhu').innerHTML = '<option value="">-- اختر الموضوع --</option>';
+  document.getElementById('mc').innerHTML = '<option value="">-- اختر معيار المحتوى --</option>';
+  document.getElementById('mt').innerHTML = '';
+  showToast(`✅ تم التبديل إلى الصف ${tab===4?'الرابع':'الخامس'}`);
+}
+
+// ===== INIT =====
+function init() {
+  document.getElementById('tarikh').valueAsDate = new Date();
+
+  // Load mahara options for T4
+  const maharaSel = document.getElementById('mahara');
+  Object.keys(DB_T4).forEach(k => {
+    maharaSel.innerHTML += `<option value="${k}">${k}</option>`;
+  });
+
+  // BBM
+  const bbmGrid = document.getElementById('bbmGrid');
+  BBM_LIST.forEach(b => {
+    const div = document.createElement('div');
+    div.className = 'bbm-item';
+    div.innerHTML = `<input type="checkbox" onchange="this.closest('.bbm-item').classList.toggle('checked',this.checked)"> ${b}`;
+    bbmGrid.appendChild(div);
+  });
+
+  // Taqyim
+  const taqyimGrid = document.getElementById('taqyimGrid');
+  TAQYIM_LIST.forEach(t => {
+    const div = document.createElement('div');
+    div.className = 'bbm-item';
+    div.innerHTML = `<input type="checkbox" onchange="this.closest('.bbm-item').classList.toggle('checked',this.checked)"> ${t}`;
+    taqyimGrid.appendChild(div);
+  });
+
+  renderActivities([]);
+
+  ['jumlahPelajar','pelajarHadir'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcGhaiab);
+  });
+}
+
+function calcGhaiab() {
+  const j = parseInt(document.getElementById('jumlahPelajar').value)||0;
+  const h = parseInt(document.getElementById('pelajarHadir').value)||0;
+  document.getElementById('pelajarGhaiab').value = Math.max(0, j-h);
+}
+
+function calcPencapai() {
+  const p = parseInt(document.getElementById('pencapai').value)||0;
+  const j = parseInt(document.getElementById('pencapaiJumlah').value)||0;
+  const el = document.getElementById('pencapaiResult');
+  if(j>0) {
+    const pct = Math.round(p/j*100);
+    el.textContent = `${pct}%`;
+    el.style.color = pct>=70 ? 'var(--primary)' : '#c0392b';
+  }
+}
+
+// ===== DROPDOWN CASCADE =====
+function onMaharaChange() {
+  const mahara = document.getElementById('mahara').value;
+  const maudhuSel = document.getElementById('maudhu');
+  const mcSel = document.getElementById('mc');
+  const mtSel = document.getElementById('mt');
+  maudhuSel.innerHTML = '<option value="">-- اختر الموضوع --</option>';
+  mcSel.innerHTML = '<option value="">-- اختر معيار المحتوى --</option>';
+  mtSel.innerHTML = '';
+  if(!mahara) return;
+  const DB = getDB();
+  DB[mahara].topics.forEach(t => {
+    maudhuSel.innerHTML += `<option value="${t}">${t}</option>`;
+  });
+}
+
+function onMaudhuChange() {
+  const mahara = document.getElementById('mahara').value;
+  const maudhu = document.getElementById('maudhu').value;
+  const mcSel = document.getElementById('mc');
+  const mtSel = document.getElementById('mt');
+  mcSel.innerHTML = '<option value="">-- اختر معيار المحتوى --</option>';
+  mtSel.innerHTML = '';
+  if(!mahara||!maudhu) return;
+  const DB = getDB();
+  const mcs = DB[mahara].mc[maudhu]||[];
+  mcs.forEach(mc => { mcSel.innerHTML += `<option value="${mc}">${mc}</option>`; });
+}
+
+function onMCChange() {
+  const mahara = document.getElementById('mahara').value;
+  const mc = document.getElementById('mc').value;
+  const mtSel = document.getElementById('mt');
+  mtSel.innerHTML = '';
+  if(!mahara||!mc) return;
+  const DB = getDB();
+  const mts = DB[mahara].mt[mc]||[];
+  mts.forEach(mt => { mtSel.innerHTML += `<option value="${mt}">${mt}</option>`; });
+}
+
+// ===== ACTIVITIES =====
+function renderActivities(acts) {
+  const list = document.getElementById('activityList');
+  list.innerHTML = '';
+  if(acts.length === 0) {
+    for(let i=0;i<3;i++) renderActivityRow(i+1,'','');
+    return;
+  }
+  acts.forEach((a,i) => renderActivityRow(i+1, a[0], a[1]));
+}
+
+function renderActivityRow(num, masa, text) {
+  const list = document.getElementById('activityList');
+  const div = document.createElement('div');
+  div.className = 'activity-item';
+  div.innerHTML = `
+    <div class="activity-num">${num}</div>
+    <input class="activity-masa" type="text" placeholder="المدة" value="${masa}" dir="rtl">
+    <textarea class="activity-text" placeholder="وصف النشاط..." dir="rtl">${text}</textarea>
+  `;
+  list.appendChild(div);
+}
+
+function addActivity() {
+  const items = document.querySelectorAll('.activity-item');
+  renderActivityRow(items.length+1, '', '');
+}
+
+function clearActivities() { renderActivities([]); }
+
+function loadActivities() {
+  const maudhu = document.getElementById('maudhu').value;
+  const mahara = document.getElementById('mahara').value;
+  if(!maudhu) { showToast('اختر الموضوع أولاً!'); return; }
+  const ACTS = getActivities();
+  const acts = ACTS[maudhu];
+  if(!acts) { showToast('لا توجد أنشطة محددة لهذا الموضوع'); return; }
+  renderActivities(acts);
+
+  // Auto tick BBM
+  const actText = acts.map(a => a[1]).join(' ');
+  document.querySelectorAll('#bbmGrid .bbm-item').forEach(item => {
+    const cb = item.querySelector('input[type=checkbox]');
+    const label = item.textContent.replace(/\s+/g,' ').trim();
+    const keywords = {
+      'كتاب المدرسي': ['كتاب المدرسي','الكتاب'],
+      'كتاب النشاط': ['كتاب النشاط','النشاط'],
+      'LCD Projektor': ['الشرائح','عرض','شرائح'],
+      'كراسة العمل': ['كراسة','التطبيق الكتابي','يكتب'],
+      'البطاقات': ['البطاقات','بطاقات'],
+      'الورقة': ['ورقة العمل','ورقة'],
+      'الصور': ['الصور','صور'],
+    };
+    let checked = false;
+    for(const [bbm, keys] of Object.entries(keywords)){
+      if(label.includes(bbm)){ checked = keys.some(k => actText.includes(k)); break; }
+    }
+    cb.checked = checked;
+    item.classList.toggle('checked', checked);
+  });
+
+  const DEFS = getTaqyimDefaults();
+  const def = DEFS[mahara];
+  if(def) {
+    const ithinkEl = document.getElementById('ithink');
+    for(let i=0;i<ithinkEl.options.length;i++){
+      if(ithinkEl.options[i].text.trim()===def.ithink.trim()){ ithinkEl.selectedIndex=i; break; }
+    }
+    const petaEl = document.getElementById('peta');
+    for(let i=0;i<petaEl.options.length;i++){
+      if(petaEl.options[i].text.trim()===def.peta.trim()){ petaEl.selectedIndex=i; break; }
+    }
+    document.querySelectorAll('#taqyimGrid .bbm-item').forEach(item => {
+      const cb = item.querySelector('input[type=checkbox]');
+      const label = item.textContent.replace(/\s+/g,' ').trim();
+      const checked = def.taqyim.some(t => label.includes(t));
+      cb.checked = checked;
+      item.classList.toggle('checked', checked);
+    });
+  }
+  showToast('✅ تم تحميل الأنشطة!');
+}
+
+// ===== SEBAB =====
+function toggleSebab(el) {
+  el.classList.toggle('active');
+}
+
+// ===== SAVE/LOAD =====
+function saveData() {
+  const data = collectData();
+  const key = `erph_data_t${currentTab}`;
+  localStorage.setItem(key, JSON.stringify(data));
+  showToast(`💾 تم الحفظ! (ت${currentTab===4?'٤':'٥'})`);
+}
+
+function loadData() {
+  const key = `erph_data_t${currentTab}`;
+  const raw = localStorage.getItem(key);
+  if(!raw) { showToast('لا توجد بيانات محفوظة'); return; }
+  const data = JSON.parse(raw);
+  Object.keys(data).forEach(k => {
+    const el = document.getElementById(k);
+    if(el) el.value = data[k];
+  });
+  showToast('📂 تم التحميل!');
+}
+
+function collectData() {
+  const data = {};
+  ['tarikh','minggu','hissah','masaMula','masaTamat','namaCikgu','kelas','mahara','maudhu','mc','refleksi','jumlahPelajar','pelajarHadir','sebabLain','ithink','peta'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) data[id] = el.value;
+  });
+  return data;
+}
+
+function resetForm() {
+  if(confirm('هل تريد مسح جميع البيانات؟')) {
+    document.querySelectorAll('input:not([type=checkbox]),select,textarea').forEach(el => {
+      if(el.type==='date') el.valueAsDate = new Date();
+      else el.value='';
+    });
+    document.querySelectorAll('input[type=checkbox]').forEach(el => {
+      el.checked=false;
+      el.closest('.bbm-item').classList.remove('checked');
+    });
+    document.querySelectorAll('.sebab-tag').forEach(t=>t.classList.remove('active'));
+    renderActivities([]);
+    showToast('🗑 تم إعادة التعيين');
+  }
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+init();
+</script>
+</body>
+</html>
